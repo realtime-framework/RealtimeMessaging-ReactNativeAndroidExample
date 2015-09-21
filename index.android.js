@@ -5,7 +5,7 @@
 'use strict';
 
 var React = require('react-native');
-var module = require('RCTRealtimeMessagingIOS');
+var module = require('RCTRealtimeMessagingAndroid');
 var RCTRealtimeMessaging = new module();
 
 
@@ -43,7 +43,8 @@ var RealtimeRCT = React.createClass({
       appKey:this.state.appKey,
       token:this.state.token,
       connectionMetadata:this.state.connectionMetadata,
-      clusterUrl:this.state.clusterUrl
+      clusterUrl:this.state.clusterUrl,
+      projectId:'<YOUR_GOOGLE_PROJECT_NUMBER>'
     });
   },
 
@@ -73,24 +74,8 @@ var RealtimeRCT = React.createClass({
 
   doPresence: function(){
     RCTRealtimeMessaging.RTPresence(
-       this.state.clusterUrl,
-       true,
-       this.state.appKey,
-       this.state.token, 
        this.state.channel
      );
-  },
-
-  doSegue: function(){
-    this.props.navigator.push({
-      title: NavigatorIOSExample.title,
-      component: EmptyPage,
-      rightButtonTitle: 'Cancel',
-      onRightButtonPress: () => this.props.navigator.pop(),
-      passProps: {
-        text: 'This page has a right button in the nav bar',
-      }
-    });
   },
 
   _onException: function(exceptionEvent){
@@ -142,7 +127,7 @@ var RealtimeRCT = React.createClass({
       clusterUrl: "http://ortc-developers.realtime.co/server/2.1/",
       token: "SomeAuthenticatedToken",
       appKey: "YOUR_REALTIME_APPKEY",
-      channel: "yellow",
+      channel: "CHANNEL",
       connectionMetadata: "ReactNative Example",
       message: "This is the message",
       topWidth:0,
