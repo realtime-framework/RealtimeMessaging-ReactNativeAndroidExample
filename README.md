@@ -1,7 +1,7 @@
-# RealtimeMessaging-ReactNativeAndroidExample
+# Realtime Messaging example using React Native for Android (including Push Notifications)
 Realtime Cloud Messaging React Native for Android Example (including GCM mobile push notifications)
 
-This example is a simple app that allows you to send and receive messages between devices using React Native and the Realtime Messaging React Native SDK.
+This example is a simple app that allows you to send and receive messages between devices using React Native and the Realtime Messaging React Native SDK for Android.
  
 [Realtime Cloud Messaging](http://framework.realtime.co/messaging) is a highly-scalable pub/sub message broker, allowing you to broadcast messages to millions of users, reliably and securely. It's all in the cloud so you don't need to manage servers.
 
