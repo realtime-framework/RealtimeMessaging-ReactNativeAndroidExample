@@ -10,54 +10,18 @@ This example is a simple app that allows you to send and receive messages betwee
 
 ##How to test this demo application
 
-*	Create a new react-native project using the following command `react-native init RealtimeRCT`
+*	Create a new react-native project with name `RealtimeRCT`. [Check react-native getting started](http://facebook.github.io/react-native/docs/getting-started.html#content)
 
 *	Replace index.android.js for the one provided in this repository.
 
-* Create a new react-native project. [Check react-native getting started](http://facebook.github.io/react-native/docs/getting-started.html#content)
+*	Install the RCTRealtimeMessagingAndroid SDK, follow the [documentation](https://github.com/realtime-framework/RCTRealtimeMessagingAndroid) on realtime framework GitHub.
 
-* On the terminal, go to `PROJECT_DIR/node_modules/react-native`.
+*	Create a Google project in [here](https://code.Google.com/apis/).
 
-* Execute
+*	Create a Realtime messaging account and configure the Google Api key on the account, you can check more details of this process in the android native configuration guide for [push notification](http://messaging-public.realtime.co/documentation/starting-guide/mobilePushGCM.html). 
+**Note: Theres no need to change Manifest.xml in react-native, that is just for android native.**	
 
-		 npm install --save react-native-realtimemessaging-android
-
-* Drag all files `node_modules/react-native-realtimemessaging-android` to your `src` package folder.
-
-* Add compile `co.realtime:messaging-android:2.1.+` to app dependencies in your `build.gradle` file.
-
-* Drag `RCTRealtimeMessagingAndroid.js` to the root of your project.
-
-* Add `.addPackage(new CustomReactPackage())` to the `onCreate` method of `MainActivity`.
-
-* **If you want to use push notifications**, set `MainActivity` extending `RealtimePushNotificationActivity`.
-
-	* Edit AndroidManifest.xml
-			
-			...
-			<permission android:name="[YOUR RECEIVER PACKAGE].permission.C2D_MESSAGE" android:protectionLevel="signature" />
-			
-		    <uses-permission android:name="[YOUR RECEIVER PACKAGE].permission.C2D_MESSAGE" />
-		    
-		    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		    ...
-		    
-		    <application
-		    ...
-		    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-	        <receiver
-	            android:name=".GcmReceiver"
-	            android:permission="com.google.android.c2dm.permission.SEND" >
-	            <intent-filter>
-	                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-	                <category android:name="[YOUR RECEIVER PACKAGE]" />
-	            </intent-filter>
-	        </receiver>
-			    ...
-		    <application/>
-
-
-
+*	Update index.android.js to use your Google project number and Realtime application key.
 
  You are ready to go.
 
